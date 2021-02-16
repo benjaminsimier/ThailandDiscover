@@ -226,7 +226,27 @@ header {
                 margin-top: 100px;
                 
                 span {
+                    position: relative;
                     cursor: pointer;
+                    
+                    &::after {
+                        position: absolute;
+                        content: '';
+                        width: 80%;
+                        height: 1px;
+                        background-color: #FFF;
+                        bottom: -5px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        transition: .2s all ease-out;
+                    }
+
+                    &:hover {
+                        &::after {
+                            width: 100% !important;
+                            transition: .2s all ease-out;
+                        }
+                    }
                 }
             }
         }
