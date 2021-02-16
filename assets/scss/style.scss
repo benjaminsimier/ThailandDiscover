@@ -1,0 +1,477 @@
+@import 'fonts';
+
+body {
+    margin: 0;
+    background-color: #000;
+    color: #FFF;
+    // user-select: none;
+    font-family: 'Rubik', sans-serif;
+}
+
+.overlay-opened {
+    overflow: hidden;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    height: 310px;
+    background: linear-gradient(#000 0%, rgba(0, 0, 0, 0) 100%);
+    z-index: 82;
+
+    .menuHeader {
+        display: flex;
+        flex-wrap: nowrap;
+        align-content: stretch;
+        flex-direction: row;
+        padding-top: 50px;
+
+        .left {
+            .logo {
+                width: 70px;
+                height: 104px;
+    
+                img {
+                    height: 104px;
+                }
+            }
+        }
+
+
+        .right {
+            width: 100%;
+
+            .lineTop {
+                background-color: #FFF;
+                width: 100%;
+                height: 4px;
+            }
+
+            .songPlayer {
+                text-align: right;
+                padding-top: 30px;
+                
+                span {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+.gradientBottom {
+    position: fixed;
+    bottom: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0) 0%, #000 100%);
+    width: 100%;
+    height: 310px;
+    z-index: 80;
+}
+
+.map {
+    position: fixed;
+    z-index: 40;
+    top: 50%;
+    right: 110px;
+    transform: translateY(-50%);
+    margin-top: 40px;
+    transition: .4s all;
+
+    svg {
+        height: 55vh;
+        height: 455px;
+        transition: .4s all;
+    }
+
+    .pin {
+        position: absolute;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='52.388' height='73.343' viewBox='0 0 52.388 73.343'%3E%3Cpath id='Icon_ionic-md-pin' data-name='Icon ionic-md-pin' d='M32.944,2.25C18.537,2.25,6.75,13.8,6.75,27.92c0,19.252,26.194,47.673,26.194,47.673S59.138,47.172,59.138,27.92C59.138,13.8,47.351,2.25,32.944,2.25Zm0,34.838a9.17,9.17,0,1,1,0-18.336,9.17,9.17,0,1,1,0,18.336Z' transform='translate(-6.75 -2.25)' fill='%23fff'/%3E%3C/svg%3E%0A");
+        background-repeat: no-repeat;
+        background-size: 20px;
+        width: 20px;
+        height: 30px;
+        opacity: 0;
+    }
+}
+
+.site {
+    position: relative;
+    padding-top: 250px;
+    min-height: 100vh;
+    overflow: hidden;
+    background-color: #08090B;
+
+    .siteContainer {
+        display: flex;
+        flex-wrap: nowrap;
+        align-content: stretch;
+        flex-direction: row;
+
+        .left {
+            position: fixed;
+            width: 70px;
+            height: calc(100vh - 250px);
+            z-index: 80;
+            mix-blend-mode: soft-light;
+
+            .menu {
+                position: absolute;
+                top: 40%;
+                left: -100%;
+                transform: rotate(-90deg);
+
+                font-family: $font__newsreader;
+                font-weight: normal;
+                font-size: 40px;
+                letter-spacing: 0.1em;
+                text-align: center;
+                color: #fff;
+                opacity: 0.5;
+                cursor: pointer;
+            }
+        }
+
+        .right {
+            position: relative;
+            // background-color: pink;
+            padding-left: 110px;
+            padding-right: 70px;
+            width: 100%;
+            z-index: 50;
+        }
+    }
+}
+
+.background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    background-image: url('~assets/images/bg/index.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    transform: scale(1.01) translate(0%, 0%);
+    opacity: 0.17;
+    transition: .4s all ease-in-out;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1920px;
+    padding: 0 80px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.beforeShow {
+    position: fixed;
+    background-color: #08090B;
+    // background-color: red;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    z-index: 85;
+    overflow: hidden;
+    transition: .3s opacity;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+
+    .background {
+        opacity: 0.03;
+    }
+
+    .top {
+        position: fixed;
+        width: 100%;
+        height: 210px;
+        background: linear-gradient(#000 0%, rgba(0, 0, 0, 0) 100%);
+        z-index: 95;
+    }
+
+    .bottom {
+        position: fixed;
+        width: 100%;
+        height: 210px;
+        bottom: 0;
+        background: linear-gradient(rgb(0, 0, 0, 0), #000 100%);
+        z-index: 93;
+    }
+
+    .content {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        z-index: 999;
+
+        .bloc {
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            width: 100%;
+            height: 500px;
+            transform: translate(-50%, -50%);
+            text-align: center;
+
+            .logo {
+                img {
+                    height: 250px;
+                }
+            }
+
+            .btn {
+                margin-top: 100px;
+                
+                span {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+.beforeShowARemove {
+    opacity: 0 !important;
+    transition: .3s opacity;
+    animation: 0s beforeShow forwards;
+    animation-delay: 1s;
+
+    .bottom {
+        animation: 0s beforeShow forwards;
+    }
+}
+
+.BigMap {
+    z-index: 90;
+    right: -30px;
+    margin-top: -5px;
+    transition: 2s all;
+
+    svg {
+        height: calc(100vh + 200px);
+        opacity: 0.7;
+        transition: 2s all;
+    }
+}
+
+.home {
+    position: relative;
+
+    .title {
+        margin-top: 150px;
+
+        H2 {
+            margin: 0;
+            margin-bottom: 20px;
+            font-family: $font__newsreader;
+            font-size: 100px;
+            font-weight: 500;
+            line-height: 115px;
+        }
+    }
+
+    .content {
+        width: 800px;
+        max-width: 100%;
+        font-size: 20px;
+        line-height: 30px;
+        font-weight: 400;
+    }
+
+    .link {
+        a {
+            font-weight: 500;
+            font-size: 20px;
+            letter-spacing: 0.05em;
+            line-height: 34px;
+            color: #fff;
+        }
+    }
+
+    .first {
+        position: relative;
+        width: 100%;
+        height: calc(100vh - 250px - 50px);
+
+        .title {
+            margin-top: 50px;
+            position: relative;
+            text-align: center;
+
+            H1 {
+                position: absolute;
+                font-family: $font__satisfy;
+                font-weight: 300;
+                left: 50%;
+                transform: translateX(-50%);
+                
+                .titleFirst {
+                    font-size: 100px;
+                }
+
+                .titleSecond {
+                    margin-top: -25px;
+                    text-align: right;
+                    font-size: 60px;
+                    margin-right: -60px;
+                    mix-blend-mode: soft-light;
+                    opacity: .2;
+                }
+            }
+        }
+    }
+
+    .bangkok {
+        .content {
+            margin-bottom: 50px;
+        }
+
+        .gallery {
+            margin-top: 50px;
+            display: flex;
+            flex-wrap: nowrap;
+            align-content: stretch;
+            flex-direction: row;
+            grid-gap: 100px;
+
+            &--left {
+                width: 70%;
+            }
+
+            &--right {
+                margin-top: 200px;
+                width: 100%;
+            }
+
+            .image {
+                margin-top: 100px;
+
+                img {
+                    width: 100%;
+                }
+
+                .img-text {
+                    margin-top: 25px;
+                    width: 360px;
+                    max-width: 100%;
+                    // font-size: 20px;
+                    letter-spacing: 0.05em;
+                    line-height: 22px;
+                }
+            }
+        }
+    }
+
+    .isan {
+        margin-top: 200px;
+
+        .content {
+            margin-bottom: 50px;
+            display: flex;
+            flex-wrap: nowrap;
+            align-content: stretch;
+            flex-direction: row;
+            grid-gap: 30px;
+
+            &--left,
+            &--right {
+                width: 50%;
+            }
+        }
+
+        .image {
+            position: relative;
+            margin-top: 140px;
+            width: 900px;
+
+            img {
+                width: 100%;
+            }
+
+            .img-text-on {
+                position: absolute;
+                bottom: -90px;
+                right: -80px;
+                font-family: $font__satisfy;
+                font-weight: 300;
+                font-size: 120px;
+            }
+        }
+    }
+
+    .chiangmai {
+        margin-top: 300px;
+
+        .title {
+            text-align: center;
+        }
+    }
+
+    .sud {
+        height: 1700px;
+    }
+}
+
+.arrow {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateY(-50%);
+    z-index: 81;
+    cursor: pointer;
+}
+
+@keyframes beforeShow {
+    to {
+        width: 0;
+        height: 0;
+        background-color: red;
+    }
+}
+
+.change_bg {
+    background-image: url('~assets/images/bg/bangkok.jpg');
+}
+
+.change_bg2 {
+    background-image: url('~assets/images/bg/isan.jpg');
+}
+
+.change_bg3 {
+    background-image: url('~assets/images/bg/chiangmai.jpg');
+}
+
+.change_bg4 {
+    background-image: url('~assets/images/bg/sud.jpg');
+}
+
+.pin_1 {
+    opacity: 0.2 !important;
+    transition: .2s all ease-out;
+    top: 150px;
+    left: 70px;
+}
+
+.pin_2 {
+    opacity: 0.2 !important;
+    transition: .2s all ease-out;
+    top: 120px;
+    left: 150px;
+}
+
+.pin_3 {
+    opacity: 0.2 !important;
+    transition: .2s all ease-out;
+    top: 40px;
+    left: 50px;
+}
+
+.pin_4 {
+    opacity: 0.2 !important;
+    transition: .2s all ease-out;
+    top: 280px;
+    left: 100px;
+}
